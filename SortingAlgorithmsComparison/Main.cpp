@@ -6,9 +6,9 @@ using namespace std;
 using namespace sf;
 
 void printMenu();
-void printArr(const vector<Elem> v);
 
-void main() {
+/*
+int main() {
 	vector<Elem> arr = randomVector(10);
 	srand((unsigned int)time(NULL));
 
@@ -31,7 +31,7 @@ void main() {
 			case 3:
 				printArr(arr);
 				break;
-			case 4:
+			case 4:{
 				auto begin = chrono::high_resolution_clock::now();
 
 				bubbleSort(arr);
@@ -41,10 +41,56 @@ void main() {
 				auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
 				cout << "array sorted with bubble sort, elapsed time: " << ms << " ms" << endl;
 				break;
+			}
+			case 5:{
+				auto begin = chrono::high_resolution_clock::now();
+
+				insertionSort(arr);
+
+				auto end = chrono::high_resolution_clock::now();
+				auto dur = end - begin;
+				auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+				cout << "array sorted with bubble sort, elapsed time: " << ms << " ms" << endl;
+				break;
+			}
+			case 6:{
+				auto begin = chrono::high_resolution_clock::now();
+
+				selectionSort(arr);
+
+				auto end = chrono::high_resolution_clock::now();
+				auto dur = end - begin;
+				auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+				cout << "array sorted with bubble sort, elapsed time: " << ms << " ms" << endl;
+				break;
+			}
+			case 7: {
+				auto begin = chrono::high_resolution_clock::now();
+
+				quickSort(arr);
+
+				auto end = chrono::high_resolution_clock::now();
+				auto dur = end - begin;
+				auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+				cout << "array sorted with bubble sort, elapsed time: " << ms << " ms" << endl;
+				break;
+			}
+			case 8: {
+				auto begin = chrono::high_resolution_clock::now();
+
+				mergeSort(arr);
+
+				auto end = chrono::high_resolution_clock::now();
+				auto dur = end - begin;
+				auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(dur).count();
+				cout << "array sorted with bubble sort, elapsed time: " << ms << " ms" << endl;
+				break;
+			}
 		}
 	}
+	return 0;
 }
-
+//*/
 
 void printMenu() {
 	cout << "Select action (type 0 to quit): " << endl; 
@@ -54,11 +100,9 @@ void printMenu() {
 	cout << "\t2: set array size	args: unsigned int size" << endl;
 	cout << "\t3: print array" << endl;
 	cout << "\t4: bubbleSort" << endl;
+	cout << "\t5: insertionSort" << endl;
+	cout << "\t6: selectionSort" << endl;
+	cout << "\t7: quickSort" << endl;
+	cout << "\t8: mergeSort" << endl;
 }
 
-void printArr(const vector<Elem> v) {
-	for (unsigned int i = 0; i < v.size(); ++i) {
-		cout << v[i] << " ";
-	}
-	cout << endl;
-}
