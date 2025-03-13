@@ -113,10 +113,8 @@ unsigned int partition(vector<Elem>& v, const unsigned int low, const unsigned i
 vector<Elem> mergeSortAux(const vector<Elem>& v, const unsigned int start, const unsigned int end) {
 	if (start >= end)return { v[start] };
 	unsigned int mid = start + (end - start) / 2;
-	vector<Elem> vOne = mergeSortAux(v,start, mid);
-	vector<Elem> vTwo = mergeSortAux(v, mid + 1, end);
 
-	return merge(vOne, vTwo);
+	return merge(mergeSortAux(v, start, mid), mergeSortAux(v, mid + 1, end));
 }
 
 vector<Elem> merge(const vector<Elem> vOne, const vector<Elem> vTwo) {
