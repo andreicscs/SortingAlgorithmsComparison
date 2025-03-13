@@ -9,7 +9,7 @@ void switchVectorEl(vector<Elem> &v, const unsigned int a, const unsigned int b)
 unsigned int minPos(const vector<Elem> &arr, const unsigned int start, const unsigned int end);
 unsigned int partition(vector<Elem>& v, const unsigned int low, const unsigned int high);
 void quickSortAux(vector<Elem>& v, const unsigned int low, const unsigned int high);
-vector<Elem> mergeSortAux(vector<Elem>& v, const unsigned int start, const unsigned int end);
+vector<Elem> mergeSortAux(const vector<Elem>& v, const unsigned int start, const unsigned int end);
 vector<Elem> merge(const vector<Elem> vOne, const vector<Elem> vTwo);
 
 
@@ -110,7 +110,7 @@ unsigned int partition(vector<Elem>& v, const unsigned int low, const unsigned i
 	return leftWall;
 }
 
-vector<Elem> mergeSortAux(vector<Elem>& v, const unsigned int start, const unsigned int end) {
+vector<Elem> mergeSortAux(const vector<Elem>& v, const unsigned int start, const unsigned int end) {
 	if (start >= end)return { v[start] };
 	unsigned int mid = start + (end - start) / 2;
 	vector<Elem> vOne = mergeSortAux(v,start, mid);
