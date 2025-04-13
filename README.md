@@ -33,7 +33,7 @@ A C++ implementation of common sorting algorithms with comprehensive testing and
 - C++ CMake tools for Windows (VS extension)
 ### 🔧 Building the Solution
 1. **Clone**:
-   ```powershell
+   ```bash
    git clone --recursive https://github.com/andreicscs/server-http.git
    ```
 2. **Open in Visual Studio**:
