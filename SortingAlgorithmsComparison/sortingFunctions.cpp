@@ -78,7 +78,10 @@ namespace sf {
 
 	void quickSort(vector<Elem>& v) {
 		unsigned int size = v.size();
-		quickSortAux(v,0,size);
+		if (size<=0) {
+			return;
+		}
+		quickSortAux(v,0,size-1);
 	}
 
 	void mergeSort(vector<Elem>& v) {
@@ -91,22 +94,23 @@ namespace sf {
 void quickSortAux(vector<Elem>& v, const unsigned int low, const unsigned int high) {
 	if (low<high) {
 		unsigned int pivot = partition(v, low, high);
-		quickSortAux(v, low, pivot);
+		if (pivot > 0)
+			quickSortAux(v, low, pivot-1);
 		quickSortAux(v, pivot+1, high);
 	}
 }
 
 unsigned int partition(vector<Elem>& v, const unsigned int low, const unsigned int high) {
-	unsigned int pivot = high-1;
+	unsigned int pivot = high;
 	unsigned int leftWall = low;
 
-	for (unsigned int i = low; i < high-1; ++i) {
-		if (v[i] < v[pivot]) {
+	for (unsigned int i = low; i < high; ++i) {
+		if (v[i] <= v[pivot]) {
 			switchVectorEl(v, i, leftWall);
 			leftWall++;
 		}
 	}
-	switchVectorEl(v, pivot, leftWall);
+	switchVectorEl(v, leftWall, high);
 	return leftWall;
 }
 

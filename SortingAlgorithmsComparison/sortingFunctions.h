@@ -21,6 +21,4 @@ namespace sf
 	// O( n log(n) )
 	void quickSort(vector<Elem> &v);
 	void mergeSort(vector<Elem> &v);
-
-	
 }
